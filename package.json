@@ -4,11 +4,16 @@
   "description": "npm install",
   "main": "index.js",
   "scripts": {
+    "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "buffer": "^5.7.1",
     "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
   }
 }

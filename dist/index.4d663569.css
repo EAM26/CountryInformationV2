@@ -1,0 +1,94 @@
+@import "https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Leckerli+One&family=Roboto&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+h1 {
+  font-family: Gochi Hand, cursive;
+  font-size: 3em;
+}
+
+ul {
+  columns: 3;
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  width: 90%;
+  background-color: #f5f5f5;
+  padding: 15px;
+}
+
+li {
+  padding: 10px 20px;
+  list-style: none;
+  overflow: auto;
+}
+
+p {
+  font-size: .7em;
+}
+
+.outer-container {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.inner-container {
+  flex-direction: column;
+  flex: 0 1200px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.world-map {
+  width: 90%;
+}
+
+.flag-img {
+  width: 30px;
+  height: 20px;
+}
+
+.country-name {
+  margin-left: 10px;
+  font-size: 1em;
+}
+
+.inner-list {
+  margin-bottom: 2px;
+  display: flex;
+}
+
+.blue {
+  color: #00f;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: #ff0;
+}
+
+.purple {
+  color: purple;
+}
+
+.gray {
+  color: #7d7f7c;
+}
+
+/*# sourceMappingURL=index.4d663569.css.map */
