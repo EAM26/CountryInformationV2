@@ -560,11 +560,27 @@ function hmrAccept(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-// get values from one country
-// create html with list
-// create sentence
 const countriesList = document.getElementById("countries-list");
-async function getCountries() {
+const singleCountry = document.getElementById("single-country");
+async function fetchSingleCountry() {
+    let countryInfo = "";
+    try {
+        const name = "korea";
+        const response = await (0, _axiosDefault.default).get(`https://restcountries.com/v3.1/name/${name}`);
+        console.log(response.data[0]);
+        const { region , name: { common: nameCountry  } , flags: { png: flag  } , population: amount , capital , currencies  } = response.data[0];
+        console.log(region);
+        countryInfo += `<div class="info-block"><img src="${flag}" alt=""><span>${nameCountry}</span>
+                        <p>${nameCountry} is situated in ${region}. It has a population of ${amount} people.</p>
+                        <p>The capital is ${capital} and you can pay with ${currencies.EUR.name}'s</p>
+                        <p></p>
+                        </div>`;
+    } catch (e) {
+        console.log(`Error in code ${e}`);
+    }
+    singleCountry.innerHTML = countryInfo;
+}
+async function fetchCountries() {
     let contentListItem = "";
     try {
         const response = await (0, _axiosDefault.default).get("https://restcountries.com/v3.1/all?fields=name,flags,population,region");
@@ -595,7 +611,8 @@ function getColorByRegion(region) {
             return "gray";
     }
 }
-getCountries();
+// fetchCountries();
+fetchSingleCountry();
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
