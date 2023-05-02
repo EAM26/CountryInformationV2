@@ -1,29 +1,7 @@
 import axios from "axios";
 
-
-
-
 const countriesList = document.getElementById("countries-list");
-const singleCountry = document.getElementById("single-country")
 
-async function fetchSingleCountry() {
-    let countryInfo = "";
-    try {
-        const name = "korea";
-        const response = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
-        console.log(response.data[0]);
-        const {region, name: {common: nameCountry}, flags: {png: flag}, population: amount, capital, currencies} = response.data[0];
-        console.log(region)
-        countryInfo += `<div class="info-block"><img src="${flag}" alt=""><span>${nameCountry}</span>
-                        <p>${nameCountry} is situated in ${region}. It has a population of ${amount} people.</p>
-                        <p>The capital is ${capital} and you can pay with ${currencies.EUR.name}'s</p>
-                        <p></p>
-                        </div>`
-    } catch (e) {
-        console.log(`Error in code ${e}`);
-    }
-    singleCountry.innerHTML = countryInfo;
-}
 
 async function fetchCountries() {
     let contentListItem =  "";
@@ -42,7 +20,6 @@ async function fetchCountries() {
     }
     countriesList.innerHTML = contentListItem;
 }
-
 
 
 function getColorByRegion(region) {
@@ -64,4 +41,4 @@ function getColorByRegion(region) {
 }
 
 // fetchCountries();
-fetchSingleCountry();
+// fetchSingleCountry();

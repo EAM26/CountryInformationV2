@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="styles.css" rel="stylesheet">
-    <script defer src="main.js" type="module"></script>
+    <link href="search_styles.css" rel="stylesheet">
+    <script defer src="app.js" type="module"></script>
 </head>
 <body>
-<div class="inner-container">
-    <h1>Let's search some countries</h1>
-    <img alt="" class="globe" src="../assets/globe.png">
-    <form action="">
-        <label for="search-bar"><input id="search-bar" placeholder="country name" type="text">
-            <button type="submit">search</button>
-        </label>
-    </form>
-    <div id="single-country"></div>
+<div class="outer-container">
+    <div class="inner-container">
+        <h1>Let's search some countries</h1>
+        <img alt="" class="globe" src="../assets/globe.png">
+        <form action="" id="country-form">
+            <label for="input-country"><input id="input-country" placeholder="country name" type="text">
+                <button id="country-button" type="submit">search</button>
+            </label>
+        </form>
+        <div id="single-country"></div>
+    </div>
 </div>
 </body>
 </html>

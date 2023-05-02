@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"e11Rl":[function(require,module,exports) {
+})({"lKzq4":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "bed887d14d6bcbeb";
+module.bundle.HMR_BUNDLE_ID = "fe4256060641b553";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,44 +556,40 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"gLLPy":[function(require,module,exports) {
+},{}],"bNKaB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-const countriesList = document.getElementById("countries-list");
-async function fetchCountries() {
-    let contentListItem = "";
+const singleCountry = document.getElementById("single-country");
+const countryForm = document.getElementById("country-form");
+countryForm.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    fetchSingleCountry(document.getElementById("input-country").value);
+});
+async function fetchSingleCountry(searchCountry) {
+    let countryInfo = "";
     try {
-        const response = await (0, _axiosDefault.default).get("https://restcountries.com/v3.1/all?fields=name,flags,population,region");
-        const countriesSortedByPopulation = response.data.sort((a, b)=>a.population - b.population);
-        countriesSortedByPopulation.map((country)=>{
-            const { region , name: { official: name  } , flags: { png: flag  } , population: amount  } = country;
-            const colorClass = getColorByRegion(region);
-            contentListItem += `<li><div class="inner-list" ><img class="flag-img" src=${flag} alt="flag of ${name}"><span class='${colorClass} country-name'>${name}</span></div><p>Has a population of ${amount} people</p></li>`;
-        });
+        const response = await (0, _axiosDefault.default).get(`https://restcountries.com/v2/name/${searchCountry}?fields=region,name,flags,population,capital,currencies`);
+        console.log(response.data);
+        const { region , name: nameCountry , flags: { png: flag  } , population: amount , capital , currencies  } = response.data[0];
+        countryInfo += `<img class="single-flag" src="${flag}" alt=""><span class="single-big-name">${nameCountry}</span>
+                        <div class="info-text"><p>${nameCountry} is situated in ${region}. It has a population of ${amount} people.</p>
+                        <p>The capital is ${capital} and you can pay with ${getAllCurrenciesMessage(currencies)}</p>
+                        <p></p>
+                        </div>
+                        `;
     } catch (e) {
-        console.log(`Error in request ${e}`);
+        console.log(`Error in code ${e}`);
     }
-    countriesList.innerHTML = contentListItem;
+    singleCountry.innerHTML = countryInfo;
 }
-function getColorByRegion(region) {
-    switch(region){
-        case "Europe":
-            return "yellow";
-        case "Asia":
-            return "red";
-        case "Americas":
-            return "green";
-        case "Africa":
-            return "blue";
-        case "Oceania":
-            return "purple";
-        default:
-            return "gray";
-    }
-} // fetchCountries();
- // fetchSingleCountry();
+function getAllCurrenciesMessage(currencies) {
+    // const currenciesArray = Object.keys(currencies);
+    let message = `${currencies[0].name}'s`;
+    for(let i = 1; i < currencies.length; i++)message += ` and ${currencies[i].name}'s`;
+    return message;
+}
 
-},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire5fd4")
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["lKzq4","bNKaB"], "bNKaB", "parcelRequire5fd4")
 
-//# sourceMappingURL=index.4d6bcbeb.js.map
+//# sourceMappingURL=search.0641b553.js.map
