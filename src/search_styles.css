@@ -25,7 +25,7 @@
 }
 
 body {
-   height: 100vh;
+    height: 100vh;
 }
 
 /* ------------------------------- 2. Typography ----------------------------------- */
@@ -34,37 +34,9 @@ body {
 /* ------------------------------- 3. Layout --------------------------------------- */
 
 /* ------------------------------- 3.1  Elements --------------------------------------- */
+/* ------------------------------- 3.2  Class --------------------------------------- */
 
-h1  {
-    font-size: 3em;
-    font-family: 'Gochi Hand', cursive;
-}
 
-ul {
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
-    width: 90%;
-    background-color: whitesmoke;
-    padding: 15px;
-}
-
-li {
-    list-style: none;
-    overflow: auto;
-    padding: 10px 20px ;
-}
-
-p {
-    font-size: .7em;
-}
-
-.search-link {
-    padding: 0 10px;
-
-}
-
-/* ------------------------------- 3.2  Classes --------------------------------------- */
 
 
 .outer-container {
@@ -77,59 +49,45 @@ p {
 .inner-container {
     display: flex;
     flex-direction: column;
-    flex: 0 1 1200px;
+    flex: 0 1 auto;
     justify-content: center;
     align-items: center;
 }
 
-.world-map {
-    width: 90%;
-}
-
-.flag-img {
-    width: 30px;
-    height: 20px;
-
-}
-
-.country-name {
-    font-size: 1em;
-    margin-left: 10px;
-}
-
-.inner-list {
-    display: flex;
-    margin-bottom: 2px;
-}
-
-.blue {
-    color: blue;
-}
-
-.red {
-    color: red;
-}
-
-.green {
-    color: green;
-}
-
-.yellow {
-    color: yellow;
-}
-
-.purple {
-    color: purple;
-}
-
-.gray {
-    color: #7D7F7C;
-}
-
 .globe {
-    width: 400px;
+    height: 300px;
 }
 
+.single-flag {
+    width: 50px;
+}
 
+.info-text {
+    margin-top: 30px;
+}
+
+span {
+    font-size: 2em;
+    font-family: 'Gochi Hand', cursive;
+    padding-left: 5px;
+}
+
+form {
+    margin-bottom: 100px;
+}
+p {
+    padding: 5px 0;
+}
+
+input {
+    width: 250px;
+    height: 25px;
+}
+
+button {
+    height: 25px;
+    margin-left: -5px;
+    background-color: #72A17F;
+}
 
 
