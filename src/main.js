@@ -40,5 +40,5 @@ function getColorByRegion(region) {
     }
 }
 
-// fetchCountries();
-// fetchSingleCountry();
+fetchCountries();
+

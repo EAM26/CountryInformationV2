@@ -33,6 +33,10 @@ p {
   font-size: .7em;
 }
 
+.search-link {
+  padding: 0 10px;
+}
+
 .outer-container {
   width: 100%;
   justify-content: center;
